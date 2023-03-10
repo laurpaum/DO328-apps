@@ -11,7 +11,7 @@ ENV REACT_APP_KEYCLOAK_CLIENT_ID=PLACEHOLDER
 # Cache dependencies
 COPY package.json .
 COPY package-lock.json .
-RUN npm ci --production
+RUN npm ci --production --verbose
 
 # Cache public files
 COPY public ./public
