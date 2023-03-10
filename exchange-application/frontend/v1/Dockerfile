@@ -1,4 +1,4 @@
-FROM ubi8/nodejs-12
+FROM registry.redhat.io/ubi8/nodejs-12
 
 # URL of the exchange app
 # All env vars exposed to the React app must start with REACT_APP
