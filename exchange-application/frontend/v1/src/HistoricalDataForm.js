@@ -12,8 +12,9 @@ import {
 } from '@patternfly/react-core';
 
 import Spinner from './Loading';
-import RenderedChart from './Graph'
+import RenderedChart from './Graph';
 
+import { getKeycloak } from 'react-router-keycloak';
 
 class CurrencyPicker extends Component {
     constructor(props) {
@@ -35,7 +36,11 @@ class CurrencyPicker extends Component {
             loading: true
         })
 
-        fetch(`http://${process.env.REACT_APP_GW_ENDPOINT}/currencies`)
+        fetch(`http://${process.env.REACT_APP_GW_ENDPOINT}/currencies`, {
+            headers: {
+                'Authorization': `Bearer ${getKeycloak().token}`
+            }
+        })
             .then(currencies => currencies.json())
             .then(currencies => this.setState({
                 currencies, src: currencies[0], target: currencies[1], loading: false
@@ -72,7 +77,8 @@ class CurrencyPicker extends Component {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getKeycloak().token}`
             },
             body: JSON.stringify(payload)
         })
