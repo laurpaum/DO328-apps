@@ -4,6 +4,10 @@ FROM ubi8/nodejs-12
 # All env vars exposed to the React app must start with REACT_APP
 ENV REACT_APP_GW_ENDPOINT=PLACEHOLDER
 
+ENV KEYCLOAK_URL=PLACEHOLDER
+ENV KEYCLOAK_REALM=PLACEHOLDER
+ENV KEYCLOAK_CLIENT_ID=PLACEHOLDER
+
 # Cache dependencies
 COPY package.json .
 COPY package-lock.json .
