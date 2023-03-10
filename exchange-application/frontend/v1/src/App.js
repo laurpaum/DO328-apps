@@ -12,9 +12,9 @@ import {
 
 import KeycloakProvider, { configureKeycloak, PrivateRoute, Login, Logout } from 'react-router-keycloak';
 
-const KEYCLOAK_URL = `${process.env.KEYCLOAK_URL}`;
-const KEYCLOAK_REALM = `${process.env.KEYCLOAK_REALM}`;
-const KEYCLOAK_CLIENT_ID = `${process.env.KEYCLOAK_CLIENT_ID}`;
+const KEYCLOAK_URL = `${process.env.REACT_APP_KEYCLOAK_URL}`;
+const KEYCLOAK_REALM = `${process.env.REACT_APP_KEYCLOAK_REALM}`;
+const KEYCLOAK_CLIENT_ID = `${process.env.REACT_APP_KEYCLOAK_CLIENT_ID}`;
 
 function handleRefresh(token) {
   console.log('Called every time the token is refreshed so you can update it locally', token);
